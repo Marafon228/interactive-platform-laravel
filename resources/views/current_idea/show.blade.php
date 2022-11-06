@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">current idea Page</div>
+        <div class="card-header">Страница текущей идеи</div>
         <div class="card-body">
             <div class="card-body">
                 <p class="card-title">Опыт участия в хакатонах (количество)

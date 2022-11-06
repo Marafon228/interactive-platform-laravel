@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AnyIdea\Comment\StoreRequest;
 use App\Models\AnyIdea;
+use App\Models\AnyIdeaAndUser;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -39,7 +40,12 @@ class AnyIdeaController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        AnyIdea::create($input);
+        $any = AnyIdea::create($input);
+        AnyIdeaAndUser::create([
+            'id_any_idea' => $any->id,
+            'id_user' => auth()->user()->id,
+        ]);
+
         return redirect('any_idea')->with('flash_message', 'any idea Addedd!');
     }
 

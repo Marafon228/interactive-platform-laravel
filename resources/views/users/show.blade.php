@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">Users Page</div>
+        <div class="card-header">Страница пользователя</div>
         <div class="card-body">
             <div class="card-body">
                 <p class="card-title">ФИО : {{ $users->fio }}</p>

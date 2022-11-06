@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">Create New User</div>
+        <div class="card-header">Создание новой темы</div>
         <div class="card-body">
 
             <form action="{{ url('teams') }}" method="post">

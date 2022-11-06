@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">Edit Student</div>
+        <div class="card-header">Редактирование пользователя</div>
         <div class="card-body">
 
             <form action="{{ url('users/' .$users->id) }}" method="post">

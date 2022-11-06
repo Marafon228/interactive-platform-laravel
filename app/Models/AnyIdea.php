@@ -42,6 +42,11 @@ class AnyIdea extends Model
         return view('any_idea.show');
     }
 
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 
 
 }

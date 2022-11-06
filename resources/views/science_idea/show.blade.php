@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">Science idea Page</div>
+        <div class="card-header">Страница научной идеи</div>
         <div class="card-body">
             <div class="card-body">
                 <p class="card-title">ИНН (гражданина) : {{ $science_idea->inn }}</p>

@@ -77,4 +77,9 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class, 'id_user','id');
     }
 
+    public function any_idea()
+    {
+        return $this->belongsToMany(AnyIdea::class);
+    }
+
 }

@@ -3,7 +3,7 @@
 
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">any idea Page</div>
+        <div class="card-header">Страница идеи</div>
         <div class="card-body">
             <div class="card-body">
                 <p class="card-title">Название : {{ $any_idea->name }}</p>

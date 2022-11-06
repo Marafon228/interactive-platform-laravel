@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">Create New current idea</div>
+        <div class="card-header">Создание новой текущей идеи</div>
         <div class="card-body">
 
             <form action="{{ url('current_idea') }}" method="post">
