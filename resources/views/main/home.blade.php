@@ -1,3 +1,5 @@
+@extends('main.layout')
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,6 +10,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
 
         <!-- Styles -->
         <style>
@@ -25,29 +29,36 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Личный кабинет</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Войти</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Регистрация</a>
                         @endif
                     @endauth
                 </div>
             @endif
     <div class="container">
-        <h1 class="edica-page-title" data-aos="fade-up">Блог</h1>
+        <h1>Идеи</h1>
         <section class="featured-posts-section">
             <div class="row">
                 @foreach($any_idea as $post)
-                    <<div class="col-md-4 featured-post blog-post" data-aos="fade-up">
-                        <div class="blog-post-thumbnail-wrapper">
+                    <div class="border">
+                        {{--<div class="blog-post-thumbnail-wrapper">
                             <img src="{{ $post->preview_image }}" alt="blog post">
-                        </div>
-                        <p class="blog-post-category">{{ $post->category->title }}</p>
-                        <a href="#" class="blog-post-permalink">
-                            <h6 class="blog-post-title">{{ $post->title }}</h6>
+                        </div>--}}
+
+                        <a href="/any_idea/{{$post->id}}" >
+                            <h6>{{ $post->name }}</h6>
                         </a>
+                        <p>{{ $post->description }}</p>
+                        <form action="#">
+                            <button type="submit">
+                                Like
+                                {{--<i class="fa-light fa-heart"></i>--}}
+                            </button>
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -56,3 +67,4 @@
     </div>
     </body>
 </html>
+@endsection

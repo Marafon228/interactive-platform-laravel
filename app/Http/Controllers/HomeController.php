@@ -31,12 +31,12 @@ class HomeController extends Controller
     public function updateProfile(Request $request)
     {
         $validated = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
+            'fio' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
         ]);
 
-        # check if user profile image is null, then validate
+        # check if users profile image is null, then validate
         if (auth()->user()->profile_image == null) {
             $validate_image = Validator::make($request->all(), [
                 'profile_image' => ['required', 'image', 'max:1000']
@@ -63,9 +63,9 @@ class HomeController extends Controller
             $profile_image = $request->profile_image->store('profile_images', 'public');
         }
 
-        # update the user info
+        # update the users info
         auth()->user()->update([
-            'name' => $request->name,
+            'fio' => $request->fio,
             'phone' => $request->phone,
             'address' => $request->address,
             'profile_image' => $profile_image ?? auth()->user()->profile_image

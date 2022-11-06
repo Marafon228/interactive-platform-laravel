@@ -17,6 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'users';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'fio',
         'date_of_birth',
@@ -35,10 +40,11 @@ class User extends Authenticatable
         'role_team',
         'patent',
         'company',
+        'role',
         'password',
         'profile_image',
-        'id_current_idea',
-        'id_science_idea',
+        'id_team',
+
     ];
 
     /**
@@ -59,4 +65,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*public function currentIdea(){
+        return $this->belongsTo(CurrentIdea::class, 'id_current_idea','id');
+    }
+    public function sciencetIdea(){
+        return $this->belongsTo(ScienceIdea::class, 'id_science_idea','id');
+    }*/
+
+    public function comments(){
+        return $this->hasMany(Comment::class, 'id_user','id');
+    }
+
 }
